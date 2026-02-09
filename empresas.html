@@ -11,7 +11,7 @@
             --bg-light: #fdfdfd;
             --white: #ffffff;
             --gray: #666;
-            --success: #25d366; /* Cor WhatsApp */
+            --whatsapp: #25d366;
         }
 
         body { 
@@ -26,7 +26,7 @@
         header { 
             height: 60vh; 
             /* Substitua pela sua imagem real */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/Gemini_Generated_Image_se10jsse10jsse10.png') top/cover no-repeat; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542038784424-48ed221f704b?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; 
             display: flex; 
             flex-direction: column;
             align-items: center; 
@@ -65,7 +65,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            /* justify-content: space-between; Removido pois não há botão no fundo para empurrar */
         }
 
         .corp-card:hover { 
@@ -97,28 +97,43 @@
             content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: bold; 
         }
 
-        /* --- BOTÕES --- */
-        .btn { 
-            background: var(--primary); color: white; padding: 15px 20px; text-decoration: none; 
-            border-radius: 6px; font-weight: bold; text-align: center; display: flex; 
-            align-items: center; justify-content: center; gap: 8px; transition: background 0.3s;
-            font-size: 0.9rem;
+        /* --- NOVOS BOTÕES GRANDES --- */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 60px;
+            flex-wrap: wrap;
         }
-        .btn:hover { background: #444; }
-        .btn-accent { background: var(--accent); }
-        .btn-accent:hover { background: #b88b60; }
 
-        /* --- CONTACTO --- */
-        .direct-contact {
-            background: #eef2f5; padding: 30px; border-radius: 10px; margin-top: 60px;
-            display: flex; align-items: center; justify-content: center; gap: 20px;
-            flex-wrap: wrap; border-left: 5px solid var(--accent);
+        .btn-big {
+            padding: 20px 40px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            min-width: 250px;
         }
-        .phone-number { font-size: 1.4rem; font-weight: bold; color: var(--primary); text-decoration: none; }
+
+        .btn-big:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .btn-email { background: var(--primary); color: white; }
+        .btn-email:hover { background: #444; }
+
+        .btn-whatsapp { background: var(--whatsapp); color: white; }
+        .btn-whatsapp:hover { background: #20b85c; }
+
+        .btn-icon { width: 24px; height: 24px; fill: white; }
 
         /* --- FAQ & FOOTER --- */
-        .faq { background: #fff; padding: 60px 20px; border-top: 1px solid #eee; }
+        .faq { background: #fff; padding: 60px 20px; border-top: 1px solid #eee; margin-top: 60px; }
         .faq-item { max-width: 800px; margin: 0 auto 30px auto; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        
         footer { text-align: center; padding: 60px 20px; background: #222; color: #ccc; }
         footer a { color: var(--accent); text-decoration: none; }
 
@@ -126,14 +141,16 @@
             h1 { font-size: 2rem; }
             header { height: 50vh; }
             .solutions-grid { grid-template-columns: 1fr; }
+            .action-buttons { flex-direction: column; align-items: center; }
+            .btn-big { width: 100%; max-width: 350px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Valorize as suas Clientes e Colaboradoras</h1>
-        <p class="subtitle">Ofereça Um presente com significado para o Dia das Mães. <br>Campanha exclusiva para empresas do Grande Porto.</p>
+        <h1>Valorize as suas Colaboradoras</h1>
+        <p class="subtitle">Um presente com significado para o Dia das Mães. <br>Campanha exclusiva para empresas do Grande Porto.</p>
     </header>
 
     <section class="container">
@@ -145,87 +162,78 @@
         <div class="solutions-grid">
             
             <div class="corp-card" style="border: 2px solid var(--accent);">
-                <div>
-                    <span class="highlight-badge">Mais Popular</span>
-                    <h3>Voucher 100% Oferta</h3>
-                    <p>A empresa oferece a experiência completa. A retratada não paga nada.</p>
-                    
-                    <div class="price-box">
-                        <div class="old-price">Valor de Mercado: 120€</div>
-                        <div class="new-price">80€</div>
-                        <div class="price-sub">sem compra mínima</div>
-                    </div>
-
-                    <ul>
-                        <li><strong>Poupança de 33%</strong></li>
-                        <li>Sessão completa de 45 min</li>
-                        <li>No nosso estúdio (Porto)</li>
-                        <li>Entrega de 12 fotos impressas e digitais</li>
-                    </ul>
+                <span class="highlight-badge">Mais Popular</span>
+                <h3>Voucher 100% Oferta</h3>
+                <p>A empresa oferece a experiência completa. A colaboradora não paga nada.</p>
+                
+                <div class="price-box">
+                    <div class="old-price">Valor de Mercado: 120€</div>
+                    <div class="new-price">80€</div>
+                    <div class="price-sub">custo único para a empresa</div>
                 </div>
-                <a href="https://wa.me/351914138141?text=Olá! Tenho interesse no Voucher Completo (80€)." class="btn btn-accent" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" alt="WA">
-                    PEDIR ORÇAMENTO
-                </a>
+
+                <ul>
+                    <li><strong>Poupança de 33%</strong></li>
+                    <li>Sessão completa de 45 min</li>
+                    <li>No nosso estúdio (Porto)</li>
+                    <li>Entrega de 12 fotos digitais</li>
+                </ul>
             </div>
 
             <div class="corp-card">
-                <div>
-                    <span class="highlight-badge" style="background:#999;">Opção Flexível</span>
-                    <h3>Voucher Co-Participado</h3>
-                    <p>A empresa subsidia parte do valor, incentivando a equipa.</p>
-                    
-                    <div class="price-box" style="background: #fff; border: 1px solid #eee;">
-                        <p style="margin: 0 0 5px 0;"><strong>25% Desconto</strong></p>
-                        <div style="font-size:0.8rem;">Empresa: 30€ | Colaboradora: 90€</div>
-                        <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
-                        <p style="margin: 0 0 5px 0;"><strong>50% Desconto</strong></p>
-                        <div style="font-size:0.8rem;">Empresa: 60€ | Colaboradora: 60€</div>
-                    </div>
-
-                    <ul>
-                        <li>Pack mínimo 5 sessões</li>
-                        <li>Sessão completa de 45 min</li>
-                        <li>No nosso estúdio (Porto)</li>
-                        <li>Entrega de 12 fotos impressas e digitais</li>
-                    </ul>
+                <span class="highlight-badge" style="background:#999;">Opção Flexível</span>
+                <h3>Voucher Co-Participado</h3>
+                <p>A empresa subsidia parte do valor, incentivando a equipa.</p>
+                
+                <div class="price-box" style="background: #fff; border: 1px solid #eee;">
+                    <p style="margin: 0 0 5px 0;"><strong>25% Desconto</strong></p>
+                    <div style="font-size:0.8rem;">Empresa: 30€ | Colaboradora: 90€</div>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
+                    <p style="margin: 0 0 5px 0;"><strong>50% Desconto</strong></p>
+                    <div style="font-size:0.8rem;">Empresa: 60€ | Colaboradora: 60€</div>
                 </div>
-                <a href="https://wa.me/351914138141?text=Olá! Tenho interesse na modalidade de Voucher Desconto." class="btn" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" alt="WA">
-                    FALAR COM FOTÓGRAFO
-                </a>
+
+                <ul>
+                    <li>Investimento reduzido</li>
+                    <li>Sessão completa de 45 min</li>
+                    <li>No nosso estúdio (Porto)</li>
+                    <li>Entrega de 12 fotos digitais</li>
+                </ul>
             </div>
 
             <div class="corp-card" style="background: #2c2c2c; color: white; border: none;">
-                <div>
-                    <span class="highlight-badge" style="background: white; color: var(--primary);">Serviço Premium</span>
-                    <h3 style="color: white;">Pop-up Studio</h3>
-                    <p style="color: #ccc;">Nós levamos o estúdio até à sua empresa. Máxima conveniência.</p>
-                    
-                    <div class="price-box" style="background: rgba(255,255,255,0.1); border: 1px dashed #555;">
-                        <div class="new-price" style="color: white; font-size: 1.5rem;">Sob Consulta</div>
-                        <div class="price-sub" style="color: #aaa;">Depende do nº de pessoas</div>
-                    </div>
-
-                    <ul style="color: #ddd;">
-                        <li style="color: #ddd;">✓ Montagem de cenário profissional</li>
-                        <li style="color: #ddd;">✓ Sessões Express (20 min/pessoa)</li>
-                        <li style="color: #ddd;">✓ Min. 15 pessoas</li>
-                        <li style="color: #ddd;">✓ Necessário espaço de 3x3m</li>
-                    </ul>
+                <span class="highlight-badge" style="background: white; color: var(--primary);">Serviço Premium</span>
+                <h3 style="color: white;">Pop-up Studio</h3>
+                <p style="color: #ccc;">Nós levamos o estúdio até à sua empresa. Máxima conveniência.</p>
+                
+                <div class="price-box" style="background: rgba(255,255,255,0.1); border: 1px dashed #555;">
+                    <div class="new-price" style="color: white; font-size: 1.5rem;">Sob Consulta</div>
+                    <div class="price-sub" style="color: #aaa;">Depende do nº de pessoas</div>
                 </div>
-                <a href="https://wa.me/351914138141?text=Olá! Gostaria de agendar uma visita técnica para o Pop-up Studio." class="btn btn-accent" target="_blank" style="background: white; color: var(--primary);">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="20" alt="WA">
-                    AGENDAR VISITA
-                </a>
+
+                <ul style="color: #ddd;">
+                    <li style="color: #ddd;">✓ Montagem de cenário profissional</li>
+                    <li style="color: #ddd;">✓ Sessões Express (20 min/pessoa)</li>
+                    <li style="color: #ddd;">✓ Min. 15 pessoas</li>
+                    <li style="color: #ddd;">✓ Necessário espaço de 3x3m</li>
+                </ul>
             </div>
 
         </div>
 
-        <div class="direct-contact">
-            <span style="font-size: 1.1rem;">Tem dúvidas urgentes ou pedidos especiais? Contacte diretamente:</span>
-            <a href="tel:+351914138141" class="phone-number">
-                📞 +351 914 138 141
+        <div class="action-buttons">
+            <a href="mailto:info@fotografiaparanegocios.pt?subject=Pedido de Orçamento - Dia das Mães" class="btn-big btn-email">
+                <svg class="btn-icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                PEDIR POR EMAIL
+            </a>
+
+            <a href="https://wa.me/351912345678?text=Olá! Gostaria de um orçamento para a campanha corporativa do Dia das Mães." class="btn-big btn-whatsapp" target="_blank">
+                <svg class="btn-icon" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                PEDIR NO WHATSAPP
             </a>
         </div>
     </section>
@@ -233,71 +241,41 @@
     <section class="faq">
         <div class="container" style="padding: 0;">
             <h2 style="text-align: center; margin-bottom: 50px;">Perguntas Frequentes</h2>
+            
             <div class="faq-item">
                 <h4>Emitem fatura com NIF da empresa?</h4>
-                <p>Sim. Todos os serviços são faturados com IVA à taxa legal.</p>
+                <p>Sim, absolutamente. Todos os packs corporativos são faturados com IVA incluído à taxa legal, emitidos através de software certificado pela AT.</p>
             </div>
+
             <div class="faq-item">
                 <h4>Onde é o estúdio?</h4>
-                <p>O nosso estúdio situa-se na zona do Campo 24 de Agosto, com fácil acesso ao Metro e estacionamento.</p>
+                <p>O nosso estúdio situa-se na zona da Boavista/Baixa [Inserir Localização], com fácil acesso e estacionamento próximo.</p>
             </div>
+
             <div class="faq-item">
-                <h4>Como funciona o Pop-up Studio?</h4>
-                <p>Necessitamos apenas de uma sala de reuniões ou espaço livre de 3x3 metros. Levamos fundos, iluminação e toda a equipa técnica.</p>
+                <h4>Como são entregues os vouchers?</h4>
+                <p>Enviamos um PDF personalizado com o logótipo da sua empresa e um código único, pronto a ser enviado por email às colaboradoras.</p>
             </div>
         </div>
     </section>
 
-<footer style="text-align: center; padding: 60px 20px; background: #222; color: #ccc;">
-    <p>&copy; 2026 Fotógrafo Dia das Mães - Porto</p>
-    <p style="font-size: 0.9rem; margin-top: 5px;">Especialista em Retratos de Família e Corporativos</p>
-    
-    <div style="margin: 30px 0;">
-        <a href="index.html" style="color: var(--accent); text-decoration: none;">← Voltar ao site para Particulares</a>
-        <span style="color: #444; margin: 0 10px;">|</span>
-        <a href="privacidade.html" style="color: #888; text-decoration: none;">Privacidade</a>
-    </div>
-
-    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; font-size: 0.8rem; color: #666;">
-        Esta é uma iniciativa 
-        <a href="https://fotografiaparanegocios.pt" target="_blank" rel="noopener" style="color: #aaa; font-weight: bold; text-decoration: none; letter-spacing: 0.5px;">
-            FOTOGRAFIA PARA NEGÓCIOS
-        </a>
-    </div>
-</footer>
-
-<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #2c2c2c; color: white; padding: 20px; z-index: 9999; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);">
-    <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px;">
-        <p style="margin: 0; font-size: 0.9rem;">
-            Utilizamos cookies para garantir que tem a melhor experiência (agendamentos e pagamentos). 
-            Ao continuar, concorda com a nossa <a href="privacidade.html" target="_blank" style="color: #d4a373; text-decoration: underline;">Política de Privacidade</a>.
-        </p>
-        <div style="display: flex; gap: 10px;">
-            <button onclick="acceptCookies()" style="background: #d4a373; border: none; padding: 10px 20px; color: white; border-radius: 4px; cursor: pointer; font-weight: bold;">Aceitar</button>
-            <button onclick="rejectCookies()" style="background: transparent; border: 1px solid #666; padding: 10px 20px; color: #ccc; border-radius: 4px; cursor: pointer;">Recusar</button>
+    <footer style="text-align: center; padding: 60px 20px; background: #222; color: #ccc;">
+        <p>&copy; 2026 Fotógrafo Dia das Mães - Porto</p>
+        <p style="font-size: 0.9rem; margin-top: 5px;">Especialista em Retratos de Família e Corporativos</p>
+        
+        <div style="margin: 30px 0;">
+            <a href="index.html" style="color: var(--accent); text-decoration: none;">← Voltar ao site para Particulares</a>
+            <span style="color: #444; margin: 0 10px;">|</span>
+            <a href="privacidade.html" style="color: #888; text-decoration: none;">Privacidade</a>
         </div>
-    </div>
-</div>
-
-<script>
-    // Verifica se já existe uma escolha guardada
-    if (!localStorage.getItem('cookiesAccepted')) {
-        document.getElementById('cookie-banner').style.display = 'block';
-    }
-
-    function acceptCookies() {
-        localStorage.setItem('cookiesAccepted', 'true');
-        document.getElementById('cookie-banner').style.display = 'none';
-        // Aqui podes carregar scripts de tracking se tiveres (Google Analytics, etc)
-    }
-
-    function rejectCookies() {
-        localStorage.setItem('cookiesAccepted', 'false');
-        document.getElementById('cookie-banner').style.display = 'none';
-        // Nota: Scripts essenciais como Stripe/Calendly geralmente podem correr como "Interesse Legítimo" para funcionalidade,
-        // mas scripts de publicidade (Pixel do Facebook) não devem carregar aqui.
-    }
-</script>
+    
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; font-size: 0.8rem; color: #666;">
+            Esta é uma iniciativa 
+            <a href="https://fotografiaparanegocios.pt" target="_blank" rel="noopener" style="color: #aaa; font-weight: bold; text-decoration: none; letter-spacing: 0.5px;">
+                FOTOGRAFIA PARA NEGÓCIOS
+            </a>
+        </div>
+    </footer>
 
 </body>
 </html>
