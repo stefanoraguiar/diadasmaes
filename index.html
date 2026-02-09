@@ -186,5 +186,38 @@
             breakpoints: { 768: { slidesPerView: 2 } }
         });
     </script>
+    
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #2c2c2c; color: white; padding: 20px; z-index: 9999; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);">
+    <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 15px;">
+        <p style="margin: 0; font-size: 0.9rem;">
+            Utilizamos cookies para garantir que tem a melhor experiência (agendamentos e pagamentos). 
+            Ao continuar, concorda com a nossa <a href="privacidade.html" target="_blank" style="color: #d4a373; text-decoration: underline;">Política de Privacidade</a>.
+        </p>
+        <div style="display: flex; gap: 10px;">
+            <button onclick="acceptCookies()" style="background: #d4a373; border: none; padding: 10px 20px; color: white; border-radius: 4px; cursor: pointer; font-weight: bold;">Aceitar</button>
+            <button onclick="rejectCookies()" style="background: transparent; border: 1px solid #666; padding: 10px 20px; color: #ccc; border-radius: 4px; cursor: pointer;">Recusar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Verifica se já existe uma escolha guardada
+    if (!localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookie-banner').style.display = 'block';
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        document.getElementById('cookie-banner').style.display = 'none';
+        // Aqui podes carregar scripts de tracking se tiveres (Google Analytics, etc)
+    }
+
+    function rejectCookies() {
+        localStorage.setItem('cookiesAccepted', 'false');
+        document.getElementById('cookie-banner').style.display = 'none';
+        // Nota: Scripts essenciais como Stripe/Calendly geralmente podem correr como "Interesse Legítimo" para funcionalidade,
+        // mas scripts de publicidade (Pixel do Facebook) não devem carregar aqui.
+    }
+</script>
 </body>
 </html>
