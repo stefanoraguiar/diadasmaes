@@ -220,7 +220,26 @@
         <h2>Agende o seu momento</h2>
         <p>Garante já a tua vaga escolhendo o dia e hora na nossa plataforma de marcações.</p>
         <br>
-        <a href="https://studiosimples.bubbleapps.io/version-test/booking_widget/1772921496562x882384206592999400" class="btn btn-large" target="_blank" rel="noopener noreferrer">AGENDAR AGORA</a>
+<script src="//widget.simplybook.it/react-widget/public/runtime.js"></script>
+<script src="//widget.simplybook.it/react-widget/public/app.js"></script>
+<link rel="stylesheet" href="//widget.simplybook.it/react-widget/public/app.css">
+
+<div id="sb_widget"></div>
+
+<script>
+    window.addEventListener("load", () => {
+        const themeSettings = {"colors_accent":"#d4a373","colors_accent_contrast":"#ffffff","colors_text":"#2c2c2c","colors_text_secondary":"#6d7785","colors_border":"#e7eaee","colors_background":"#fafafa","colors_link":"#216fec","font_sizes_h2":"24px","font_sizes_h3":"20px","font_sizes_p":"16px"};
+        // const predefined = [];
+
+        const widgetContainer = document.getElementById('sb_widget');
+        SimplyBookWidget(widgetContainer, {
+            apiKey: "ca5aa47d074adb0473cf06d7f22e8b7e162e273c6c0585978c7e9ff51770a199",
+            company: "fotografodiadasmaes",
+            baseUrl: "https://user-api-v2.simplybook.it",
+            theme:  themeSettings
+        });
+    });
+</script>
     </section>
 
     <footer style="background: #f4f4f4; padding: 40px 20px; font-size: 0.9rem; text-align: center; border-top: 1px solid #e0e0e0;">
