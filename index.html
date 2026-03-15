@@ -113,9 +113,6 @@
         footer a { color: var(--primary); text-decoration: underline; }
 
         @media (max-width: 768px) { h1 { font-size: 2rem; } }
-        
-        /* Corrections on the Booking Widget */
-        .sc-pGaPU.sc-hiSaRn.gvKxJI.fkiNxL {display:none;}
     </style>
 </head>
 <body>
@@ -223,25 +220,9 @@
         <h2>Agende o seu momento</h2>
         <p>Garante já a tua vaga escolhendo o dia e hora na nossa plataforma de marcações.</p>
         <br>
-<script src="//widget.simplybook.it/react-widget/public/runtime.js"></script>
-<script src="//widget.simplybook.it/react-widget/public/app.js"></script>
-<link rel="stylesheet" href="//widget.simplybook.it/react-widget/public/app.css">
-
-<div id="sb_widget"></div>
-
-<script>
-    window.addEventListener("load", () => {
-        const themeSettings = {"colors_accent":"#d4a373","colors_accent_contrast":"#ffffff","colors_text":"#2c2c2c","colors_text_secondary":"#6d7785","colors_border":"#e7eaee","colors_background":"#fafafa","colors_link":"#216fec","font_sizes_h2":"24px","font_sizes_h3":"20px","font_sizes_p":"16px"};
-        // const predefined = [];
-
-        const widgetContainer = document.getElementById('sb_widget');
-        SimplyBookWidget(widgetContainer, {
-            apiKey: "ca5aa47d074adb0473cf06d7f22e8b7e162e273c6c0585978c7e9ff51770a199",
-            company: "fotografodiadasmaes",
-            baseUrl: "https://user-api-v2.simplybook.it",
-            theme:  themeSettings
-        });
-    });
+<script src="//widget.simplybook.it/v2/widget/widget.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var widget = new SimplybookWidget({"widget_type":"iframe","url":"https:\/\/fotografodiadasmaes.simplybook.it","theme":"default","theme_settings":{"timeline_hide_unavailable":"1","hide_past_days":"1","timeline_show_end_time":"0","timeline_modern_display":"as_slots","sb_base_color":"#d4a373","display_item_mode":"block","booking_nav_bg_color":"#d4a373","body_bg_color":"#fafafa","sb_review_image":"","dark_font_color":"#2c2c2c","light_font_color":"#f5fcff","btn_color_1":"#d4a373","sb_company_label_color":"#552f34","hide_img_mode":"1","show_sidebar":"1","sb_busy":"#d4828b","sb_available":"#d4ffd4"},"timeline":"modern","datepicker":"inline_datepicker","is_rtl":false,"app_config":{"clear_session":1,"allow_switch_to_ada":0,"predefined":{"service":"2"}}});
 </script>
     </section>
 
